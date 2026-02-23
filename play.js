@@ -160,8 +160,8 @@ function appendToLog(speaker, message) {
     const logFile = getLogFile();
     const ts = new Date().toLocaleTimeString('en-US', { hour12: false });
 
-    if (speaker === "Player" && message.trim().startsWith('[') && message.trim().endsWith(']')) {
-        speaker = "Player (OOC)";
+    if (message.trim().startsWith('[') && message.trim().endsWith(']')) {
+        speaker = `${speaker} (OOC)`;
     }
 
     const line = `[${ts}] ${speaker}: ${message}`;
