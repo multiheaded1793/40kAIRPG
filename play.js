@@ -297,10 +297,12 @@ app.get('/wait', (req, res) => {
         res.json({ status: "timeout" });
     }, 3600 * 1000); // 1 hour timeout
 
-    waitingResolvers.push((result) => {
+    const resolver = (result) => {
         clearTimeout(reqTimeout);
         res.json(result);
-    });
+    };
+    resolver.res = res;
+    waitingResolvers.push(resolver);
 });
 
 // --- Legacy Dataslate & Mermaid Asset Endpoints ---
