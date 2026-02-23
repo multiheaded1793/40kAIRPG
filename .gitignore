@@ -1,5 +1,6 @@
 .env
 /node_modules
+/literature
 /tools/multiplayer-server/.wrangler/cache
 /tools/multiplayer-server/.wrangler/tmp
 /tools/multiplayer-server/.wrangler/state
