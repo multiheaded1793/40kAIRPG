@@ -6,5 +6,7 @@
 /tools/multiplayer-server/node_modules
 /logs/*
 /notes/dm_pad.txt
+/notes/current_game.json
+/notes/dm_message.txt
 /.agents/rules/*
 /.agents/skills/*
