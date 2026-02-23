@@ -1,0 +1,10 @@
+.env
+/node_modules
+/tools/multiplayer-server/.wrangler/cache
+/tools/multiplayer-server/.wrangler/tmp
+/tools/multiplayer-server/.wrangler/state
+/tools/multiplayer-server/node_modules
+/logs/*
+/notes/dm_pad.txt
+/.agents/rules/*
+/.agents/skills/*

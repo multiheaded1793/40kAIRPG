@@ -1,0 +1,92 @@
+{
+    "Underhive Scavenging": [
+        {
+            "result": "Worthless junk. Empty ration tins, rusted cogs, and stained rags.",
+            "weight": 40
+        },
+        {
+            "result": "A handful of local guild tokens, corroded but spendable (1d5 value).",
+            "weight": 20
+        },
+        {
+            "result": "Half-empty flask of low-grade, potentially blinding amasec.",
+            "weight": 10
+        },
+        {
+            "result": "A handful of stubber or autogun rounds (1d10 ammo).",
+            "weight": 15
+        },
+        {
+            "result": "A crude, functional melee weapon (club, rusty knife, length of heavy chain).",
+            "weight": 8
+        },
+        {
+            "result": "A barely functional piece of tech (e.g., a glitchy lumen-globe or cracked auspex).",
+            "weight": 5
+        },
+        {
+            "result": "Valuable salvage. An intact medipattern autosyringe or a barely-used charge pack.",
+            "weight": 2
+        }
+    ],
+    "Lower Hive Theft": [
+        {
+            "result": "A handful of Thrones (2d10 value) lifted from a distracted merchant.",
+            "weight": 35
+        },
+        {
+            "result": "A forged ident-chip or travel writ, poorly made but passable to a bored watchman.",
+            "weight": 20
+        },
+        {
+            "result": "A fresh ration pack. Actually contains real protein, not corpse-starch.",
+            "weight": 15
+        },
+        {
+            "result": "A shiny bauble or minor jewelry (10d10 Throne value).",
+            "weight": 10
+        },
+        {
+            "result": "A datapad containing mundane mercantile logs or low-level guild secrets.",
+            "weight": 10
+        },
+        {
+            "result": "A concealed weapon, like a spring-loaded stiletto or a compact derringer.",
+            "weight": 8
+        },
+        {
+            "result": "A vial of 'obscura' or other illicit narcotics.",
+            "weight": 2
+        }
+    ],
+    "Gang Loot": [
+        {
+            "result": "A handful of battered stub-rounds or shotgun shells (2d10 ammo).",
+            "weight": 30
+        },
+        {
+            "result": "A heavy, bloodstained melee weapon (chainsword, shock maul, or heavy mono-cleaver).",
+            "weight": 20
+        },
+        {
+            "result": "A pouch of 'Spook' (a dangerous psychic stimulant).",
+            "weight": 15
+        },
+        {
+            "result": "A well-maintained autogun, shotgun, or stub-revolver.",
+            "weight": 15
+        },
+        {
+            "result": "Gang colors or tattoos taken as trophies, very dangerous to possess.",
+            "weight": 10
+        },
+        {
+            "result": "A stash of extracted gold teeth or crude rings (3d10 Throne value).",
+            "weight": 5
+        },
+        {
+            "result": "A powerful, possibly customized weapon, like a bolt pistol or a plas-pistol on its last leg.",
+            "weight": 5
+        }
+    ]
+}

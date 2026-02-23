@@ -1,0 +1,1 @@
+JSON objects containing tables with weighed entries and comments can be kept here.

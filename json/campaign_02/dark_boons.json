@@ -1,0 +1,40 @@
+{
+    "Dark Boons & Manifestations": [
+        {
+            "weight": 15,
+            "result": "The Amulet's Whisper: A sudden flash of insight from the dead witch, granting +20 to the next scholarly or awareness test."
+        },
+        {
+            "weight": 15,
+            "result": "Unnatural Vigor: Chiron ignores the effects of Fatigue for the remainder of the scene; wounds knit with grotesque speed."
+        },
+        {
+            "weight": 15,
+            "result": "Aura of Dominance: Shadows stretch unnaturally from Chiron. He gains +20 to Intimidate tests, and lesser enemies must pass a Willpower test to approach him outside of cover."
+        },
+        {
+            "weight": 10,
+            "result": "The Patron's Gaze: The Traitor Legionnaire silently approves. A minor daemon is temporarily bound to a weapon, adding +2 Damage and the Warp Weapon quality for one fight."
+        },
+        {
+            "weight": 10,
+            "result": "Warp Siphon: The amulet absorbs an incoming kinetic or energy attack, dispersing it as harmless, colorful smoke."
+        },
+        {
+            "weight": 10,
+            "result": "Brutal Epiphany: Chiron perfectly understands a complex piece of technology or a tactical layout, despite having no training. The knowledge feels sickeningly alien."
+        },
+        {
+            "weight": 10,
+            "result": "Voices of the Mob: The souls of the dead laborers whisper tactical advice; Chiron gains a sudden Sixth Sense, warning him of an impending ambush."
+        },
+        {
+            "weight": 10,
+            "result": "Mark of the Brute: Chiron's musculature temporarily swells with chaotic energy, increasing his Strength Bonus by +2 for the duration of the combat encounter."
+        },
+        {
+            "weight": 5,
+            "result": "Daemonic Bargain: A minor warp entity manifests, offering to complete an immediate, simple task (like unlocking a heavy blast door) in exchange for offering it the blood of a freshly killed Imperial."
+        }
+    ]
+}

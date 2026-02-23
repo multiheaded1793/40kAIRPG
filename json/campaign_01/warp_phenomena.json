@@ -1,0 +1,36 @@
+{
+    "Minor Warp Phenomena (Granny's Luck Backlash)": [
+        {
+            "result": "A foul smell of brimstone and ozone fills the air. Granny's charm feels uncomfortably warm against Shulie's skin.",
+            "weight": 20
+        },
+        {
+            "result": "Ambient temperatures plummet. The 'Bald One' immediately reaches for a weapon, scanning for psyker activity.",
+            "weight": 20
+        },
+        {
+            "result": "Mirrors and reflective surfaces briefly show a distorted, screaming face. It looks unsettlingly like the cell's deceased member.",
+            "weight": 15
+        },
+        {
+            "result": "Small inanimate objects (like loose bullet casings) levitate an inch off the ground. Shulie must pass a Deceive test to hide this from the Interrogator.",
+            "weight": 15
+        },
+        {
+            "result": "A strange, discordant whispering can be heard by everyone. The whispers rhythmically chant words related to the 'Profane' target.",
+            "weight": 10
+        },
+        {
+            "result": "Lumen globes flicker and glow an angry, bruised purple. Granny's stubber feels strangely heavy and cold.",
+            "weight": 10
+        },
+        {
+            "result": "Shulie bleeds slightly from the nose and eyes. Granny's charm burns painfully hot. The Interrogator demands an explanation.",
+            "weight": 5
+        },
+        {
+            "result": "A minor warp ghost violently manifests and immediately dissipates, causing a startling loud bang. Everyone must pass a Willpower test or be shaken.",
+            "weight": 5
+        }
+    ]
+}

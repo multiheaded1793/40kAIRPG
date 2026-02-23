@@ -1,0 +1,16 @@
+{
+    "Loot Table - Tier 1": [
+        { "result": "Trash (Rusty Nails, Empty Bottles)", "weight": 50 },
+        { "result": "Common (1-10 Credits)", "weight": 30 },
+        { "result": "Uncommon (Basic Medkit, Autopistol Ammo)", "weight": 15 },
+        { "result": "Rare (Las-Pistol, Minor Archeotech)", "weight": 4 },
+        { "result": "Very Rare (Data-slate with passwords, Bolt Shells)", "weight": 1 }
+    ],
+    "Random Encounter - Hive City": [
+        { "result": "Crowd of citizens (harmless)", "weight": 40 },
+        { "result": "Local Enforcers patrol", "weight": 25 },
+        { "result": "Ganger ambush (low level)", "weight": 20 },
+        { "result": "Mutant sighting", "weight": 10 },
+        { "result": "Inquisitorial Acolytes", "weight": 5 }
+    ]
+}

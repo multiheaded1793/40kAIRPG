@@ -1,0 +1,52 @@
+{
+    "Underhive Encounters": [
+        {
+            "result": "A toxic sump-gas leak. All characters must pass a Routine (+20) Toughness test or suffer Fatigue. Shulie might recognize the smell from their urchin days (+10 to bypass).",
+            "weight": 15
+        },
+        {
+            "result": "A territorial dispute blocking the path. Two rival gang squads are exchanging autogun fire. Do they have ties to Shulie's old gang?",
+            "weight": 15
+        },
+        {
+            "result": "A pack of hungry, mutated sump-rats stalking the party. Are they drawn by the smell of offworlders, or something profane?",
+            "weight": 15
+        },
+        {
+            "result": "A crumbling ferrocrete walkway. Requires an Ordinary (+10) Agility test to navigate. The Interrogator's heavy armor might make this harder for him.",
+            "weight": 10
+        },
+        {
+            "result": "A crazed preacher screaming about the 'End of Days' and 'eyes in the dark'. His rantings might contain a clue about the cell's Heretical target.",
+            "weight": 10
+        },
+        {
+            "result": "A heavily localized psychic echo (Warp shadow). The temperature drops and Granny's charm burns. The 'Bald One' gives Shulie a suspicious look.",
+            "weight": 5
+        },
+        {
+            "result": "An ambush by pale, mutated scavvies. One of them is remarkably well-armed—perhaps wielding gear looted from the cell's recently deceased member.",
+            "weight": 10
+        },
+        {
+            "result": "A dead Inquisition contact or local informant, strung up as a warning. They left behind a cryptic bloody clue related to the 'Profane' target.",
+            "weight": 5
+        },
+        {
+            "result": "A swarm of predatory ripper jacks dropping from the ceiling shadows. Test Agility or be grappled.",
+            "weight": 5
+        },
+        {
+            "result": "A hidden pit-trap lined with toxic sludge, set by local scavvies. Requires Awareness to spot.",
+            "weight": 5
+        },
+        {
+            "result": "A ruined shrine to the Emperor, defaced with chaotic symbols that hurt the eyes to look at. Test Willpower to avoid unease.",
+            "weight": 3
+        },
+        {
+            "result": "An unexploded macro-cannon shell from a forgotten war, leaking volatile promethium. High explosive risk if sparked.",
+            "weight": 2
+        }
+    ]
+}

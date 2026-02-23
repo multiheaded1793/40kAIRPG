@@ -1,0 +1,36 @@
+{
+    "Lower Hive Encounters": [
+        {
+            "result": "A crowded, smog-choked market square. Desperate peddlers everywhere. The Interrogator demands Shulie find a specific black-market vendor for info on the target.",
+            "weight": 20
+        },
+        {
+            "result": "A patrol of corrupt Enforcers shaking down a hab-worker. They might recognize the cell's offworlder nature and try to extort them.",
+            "weight": 15
+        },
+        {
+            "result": "A press-gang from a local manufactorum looking for 'volunteers'. A good opportunity for the cell to blend in as indentured workers, if Shulie can smooth-talk them.",
+            "weight": 15
+        },
+        {
+            "result": "A Redemptionist street preacher whipping a ragged crowd into a frenzy. They are burning 'mutants'—which might include anyone with a Wyrd taint.",
+            "weight": 10
+        },
+        {
+            "result": "A broken elevator shaft with a makeshift pulley system acting as a toll-bridge. The toll collectors are part of a gang Shulie has history with.",
+            "weight": 10
+        },
+        {
+            "result": "A brutal street-brawl spilling out of a local drinking hole. The cell must navigate through without drawing attention or the Interrogator's wrath.",
+            "weight": 10
+        },
+        {
+            "result": "A clandestine meeting in a shadowed alley between a masked noble proxy and a local gang lieutenant. Is the noble tied to the 'Profane' Heretek target?",
+            "weight": 10
+        },
+        {
+            "result": "A flock of servo-skulls blaring Administratum propaganda. The 'Bald One' notices something hidden in the vox-code—a priority Inquisition transmission routing.",
+            "weight": 10
+        }
+    ]
+}

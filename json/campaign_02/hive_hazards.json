@@ -1,0 +1,13 @@
+{
+  "Hive Hazards": [
+    {"weight": 15, "result": "Arbites Clean-Up Crew: Heavily armed enforcers executing any mutants they find in the street. High threat."},
+    {"weight": 15, "result": "Rival Gang Ambush: Scavengers looking to pick the bones of the failed uprising. Low threat, but can cost resources."},
+    {"weight": 10, "result": "Toxic Vent Overpressurance: A sudden blast of superheated promethium exhaust or acidic sump-gas. Forces an Agility or Toughness test."},
+    {"weight": 10, "result": "Structural Collapse: A catwalk or decayed ceiling gives way. Climbing gear or a high Strength/Agility test required to survive without major injury."},
+    {"weight": 10, "result": "The Purge Servitors: Industrial kill-servitors deployed by the spire-lords to cleanse the area with heavy flamers."},
+    {"weight": 10, "result": "Desperate Refugees: Starving mutant underclass begging for food or salvation. An opportunity to recruit, or a drain on resources."},
+    {"weight": 10, "result": "Bounty Hunter: A well-equipped Imperial bounty hunter tracking Chiron specifically, having noticed him with the Traitor Legionnaire."},
+    {"weight": 10, "result": "Tech-Blight Mutation: The local machinery (cogitators, mag-doors) has become corrupted by the Warp, attacking anyone who comes near."},
+    {"weight": 10, "result": "Warp-Tainted Flora/Fauna: Sump-krocs or aggressive fungal blooms driven mad by the thinning veil."}
+  ]
+}
