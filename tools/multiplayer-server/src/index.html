@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inquisitorial Cogitator Terminal // Multiplayer</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: #010101;
+            color: #00b300;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0;
+            border-bottom: 1px solid #004d00;
+            padding-bottom: 10px;
+            color: #00cc00;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #mainArea {
+            display: flex;
+            flex-grow: 1;
+            height: calc(100vh - 120px);
+            gap: 15px;
+        }
+
+        #chatContainer {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #chat {
+            flex-grow: 1;
+            overflow-y: auto;
+            border: 1px solid #003300;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #030303;
+            white-space: pre-wrap;
+        }
+
+        #sidebar {
+            width: 250px;
+            border: 1px solid #003300;
+            background: #020202;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .msg {
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .timestamp {
+            color: #444;
+        }
+
+        .dm {
+            color: #aa0000;
+            font-weight: bold;
+        }
+
+        .dm_text {
+            color: #cc4444;
+        }
+
+        .player {
+            color: #009900;
+            font-weight: bold;
+        }
+
+        .player_text {
+            color: #00cc00;
+        }
+
+        .system {
+            color: #999900;
+            font-style: italic;
+        }
+
+        #inputArea {
+            display: flex;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            flex-grow: 1;
+            padding: 10px;
+            background: #020202;
+            color: #00cc00;
+            border: 1px solid #004d00;
+            font-family: inherit;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input[type="text"]:focus {
+            border-color: #009900;
+        }
+
+        button {
+            padding: 10px 25px;
+            background: #004d00;
+            color: #00cc00;
+            border: 1px solid #009900;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: inherit;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background: #006600;
+        }
+
+        #btnReady {
+            background: #4d0000;
+            border-color: #990000;
+            color: #ff0000;
+        }
+
+        #btnReady.is-ready {
+            background: #004d00;
+            border-color: #009900;
+            color: #00ff00;
+        }
+
+        #loginModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .login-box {
+            background: #050505;
+            border: 2px solid #004d00;
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 300px;
+        }
+
+        .login-box h3 {
+            margin-top: 0;
+            color: #00cc00;
+            border-bottom: 1px solid #004d00;
+            padding-bottom: 10px;
+        }
+
+        #loginError {
+            color: #ff0000;
+            font-weight: bold;
+            display: none;
+            margin-bottom: 10px;
+        }
+
+        .player-item {
+            padding: 5px 0;
+            border-bottom: 1px dashed #002200;
+        }
+
+        .p-ready {
+            color: #00ff00;
+        }
+
+        .p-wait {
+            color: #ff0000;
+        }
+
+        /* Modal Styles */
+        #dataslateModal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        #dsContent {
+            background-color: #050505;
+            margin: 5% auto;
+            padding: 20px;
+            border: 2px solid #004d00;
+            width: 80%;
+            max-width: 800px;
+            height: 80vh;
+            overflow-y: auto;
+            color: #00cc00;
+            position: relative;
+        }
+
+        .close-btn {
+            color: #00cc00;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: #00ff00;
+        }
+
+        .ds-menu-item {
+            padding: 10px;
+            border-bottom: 1px dashed #004d00;
+            cursor: pointer;
+        }
+
+        .ds-menu-item:hover {
+            background-color: #002200;
+        }
+
+        #dsItemView {
+            display: none;
+            white-space: pre-wrap;
+            margin-top: 20px;
+        }
+
+        #dsMenuView {
+            display: block;
+        }
+
+        #dsBackButton {
+            margin-bottom: 15px;
+            display: none;
+        }
+    </style>
+    <script src="http://127.0.0.1:3030/mermaid.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (window.mermaid) {
+                mermaid.initialize({ startOnLoad: false, theme: 'dark' });
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="loginModal">
+        <div class="login-box">
+            <h3>IDENTIFICATION REQUIRED</h3>
+            <div id="loginError">ACCESS DENIED</div>
+            <input type="text" id="loginName" placeholder="Display Name (e.g., Player)">
+            <input type="password" id="loginPass" placeholder="(Optional) Password">
+            <button onclick="connectWS()">ESTABLISH LINK</button>
+        </div>
+    </div>
+
+    <h2>
+        <span>Cogitator Terminal // <span id="connStatus" style="color:#aa0000;">OFFLINE</span></span>
+        <button style="padding: 5px 15px; font-size: 14px;" onclick="openDataslate()">[ DATASLATE ]</button>
+    </h2>
+
+    <div id="mainArea">
+        <div id="chatContainer">
+            <div id="chat"></div>
+            <div id="inputArea">
+                <input type="text" id="msgInput" placeholder="Awaiting Input... (/l load, /c clear)" autocomplete="off">
+                <button onclick="sendMsg()">Transmit</button>
+                <button id="btnReady" onclick="toggleReady()">[ STANDBY ]</button>
+            </div>
+        </div>
+        <div id="sidebar">
+            <h3 style="margin-top:0; border-bottom: 1px solid #004d00; padding-bottom: 10px;">OPERATORS</h3>
+            <div id="playerList"></div>
+        </div>
+    </div>
+
+    <!-- Dataslate Modal -->
+    <div id="dataslateModal" onclick="if(event.target===this) closeDataslate()">
+        <div id="dsContent">
+            <span class="close-btn" onclick="closeDataslate()">&times;</span>
+            <h3 style="margin-top:0; border-bottom: 1px solid #004d00; padding-bottom: 10px;">TACTICAL DATASLATE</h3>
+            <button id="dsBackButton" onclick="showDataslateMenu()">BACK TO MENU</button>
+            <div id="dsMenuView">Loading...</div>
+            <div id="dsItemView"></div>
+        </div>
+    </div>
+
+    <script>
+        let ws;
+        let myName = "";
+        let isReady = false;
+        let hasConnected = false;
+        const chat = document.getElementById('chat');
+        const input = document.getElementById('msgInput');
+        const btnReady = document.getElementById('btnReady');
+        let lastHistoryHash = null; // Basic history tracking to avoid dupes on reconnect
+
+        input.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                sendMsg();
+            }
+        });
+
+        function connectWS() {
+            myName = document.getElementById('loginName').value.trim() || 'Acolyte';
+            let pass = document.getElementById('loginPass').value.trim();
+
+            // Build WS URL relative to current location
+            let protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
+            let wsUrl = `${protocol}//${window.location.host}/ws?name=${encodeURIComponent(myName)}&password=${encodeURIComponent(pass)}`;
+
+            document.getElementById('loginError').style.display = 'none';
+            ws = new WebSocket(wsUrl);
+
+            ws.onopen = () => {
+                hasConnected = true;
+                document.getElementById('loginModal').style.display = 'none';
+                document.getElementById('connStatus').innerText = 'LINK ACTIVE';
+                document.getElementById('connStatus').style.color = '#00cc00';
+            };
+
+            ws.onmessage = (event) => {
+                let data = JSON.parse(event.data);
+
+                if (data.type === "history") {
+                    chat.innerHTML = '';
+                    for (let msg of data.data) renderMessage(msg);
+                }
+                else if (data.type === "chat") {
+                    renderMessage(data.data);
+                }
+                else if (data.type === "clear") {
+                    chat.innerHTML = '';
+                }
+                else if (data.type === "players") {
+                    renderPlayers(data.data);
+                }
+                else if (data.type === "all_ready") {
+                    // Turn ends, reset local ready state visuals
+                    isReady = false;
+                    updateReadyBtn();
+
+                    const div = document.createElement('div');
+                    div.className = 'msg system';
+                    div.innerText = `[SYS] All operators confirmed. Processing turn...`;
+                    chat.appendChild(div);
+                    chat.scrollTop = chat.scrollHeight;
+                }
+            };
+
+            ws.onclose = () => {
+                document.getElementById('connStatus').innerText = 'OFFLINE';
+                document.getElementById('connStatus').style.color = '#aa0000';
+
+                if (!hasConnected) {
+                    // Failed to open initially (e.g., 401 Unauthorized for wrong password)
+                    document.getElementById('loginError').innerText = "ACCESS DENIED: Invalid Password";
+                    document.getElementById('loginError').style.display = 'block';
+                    document.getElementById('loginModal').style.display = 'flex';
+                } else {
+                    // Dropped an active connection, try reconnecting
+                    setTimeout(connectWS, 3000); // auto-reconnect
+                }
+            };
+        }
+
+        function renderMessage(msg) {
+            let cls = 'msg';
+            let speakerCls = '';
+            let textCls = '';
+
+            if (msg.speaker.startsWith('DM')) {
+                speakerCls = 'dm';
+                textCls = 'dm_text';
+            } else if (msg.speaker === "System") {
+                speakerCls = 'system';
+                textCls = 'system';
+            } else {
+                speakerCls = 'player';
+                textCls = 'player_text';
+            }
+
+            const div = document.createElement('div');
+            div.className = cls;
+            div.innerHTML = `<span class="timestamp">[${msg.timestamp}]</span> <span class="${speakerCls}">${msg.speaker}:</span> <span class="${textCls}">${msg.message}</span>`;
+            chat.appendChild(div);
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+        function renderPlayers(playersObj) {
+            const list = document.getElementById('playerList');
+            list.innerHTML = "";
+            for (let name in playersObj) {
+                if (playersObj[name].role === "relay") continue;
+                let ready = playersObj[name].ready;
+                let statusSpan = ready ? `<span class="p-ready">[READY]</span>` : `<span class="p-wait">[WAIT]</span>`;
+
+                let el = document.createElement('div');
+                el.className = "player-item";
+                el.innerHTML = `${statusSpan} ${name}`;
+                list.appendChild(el);
+
+                // Keep local UI synced with server truth for our own player
+                if (name === myName) {
+                    isReady = ready;
+                    updateReadyBtn();
+                }
+            }
+        }
+
+        function sendMsg() {
+            let txt = input.value.trim();
+            if (!txt || !ws || ws.readyState !== WebSocket.OPEN) return;
+
+            ws.send(JSON.stringify({ type: "chat", speaker: "Player (" + myName + ")", message: txt }));
+            input.value = '';
+            input.focus();
+        }
+
+        function toggleReady() {
+            if (!ws || ws.readyState !== WebSocket.OPEN) return;
+            isReady = !isReady;
+            updateReadyBtn();
+            ws.send(JSON.stringify({ type: "ready", ready: isReady }));
+        }
+
+        function updateReadyBtn() {
+            if (isReady) {
+                btnReady.innerText = "[ READY ]";
+                btnReady.classList.add('is-ready');
+            } else {
+                btnReady.innerText = "[ STANDBY ]";
+                btnReady.classList.remove('is-ready');
+            }
+        }
+
+        /* Dataslate Functions */
+        const LOCAL_RELAY_URL = 'http://127.0.0.1:3030';
+
+        function openDataslate() {
+            document.getElementById('dataslateModal').style.display = 'block';
+            showDataslateMenu();
+        }
+        function closeDataslate() {
+            document.getElementById('dataslateModal').style.display = 'none';
+        }
+        function showDataslateMenu() {
+            document.getElementById('dsItemView').style.display = 'none';
+            document.getElementById('dsBackButton').style.display = 'none';
+            document.getElementById('dsMenuView').style.display = 'block';
+            document.getElementById('dsMenuView').innerHTML = 'Loading systems...';
+
+            fetch(`${LOCAL_RELAY_URL}/dataslate/list`)
+                .then(r => r.json())
+                .then(files => {
+                    let html = '<h4>AVAILABLE KNOWLEDGE ITEMS:</h4>';
+                    if (files.length === 0) {
+                        html += '<p>No items found.</p>';
+                    } else {
+                        files.forEach(f => {
+                            html += `<div class="ds-menu-item" onclick="loadDataslateItem('${f}')">> ${f}</div>`;
+                        });
+                    }
+                    document.getElementById('dsMenuView').innerHTML = html;
+                })
+                .catch(err => {
+                    document.getElementById('dsMenuView').innerHTML = '<p style="color:red">Error connecting to local game relay. Is `node play.js` running?</p>';
+                });
+        }
+        function loadDataslateItem(filename) {
+            document.getElementById('dsMenuView').style.display = 'none';
+            document.getElementById('dsBackButton').style.display = 'inline-block';
+            document.getElementById('dsItemView').style.display = 'block';
+            document.getElementById('dsItemView').innerHTML = 'Decrypting...';
+
+            fetch(`${LOCAL_RELAY_URL}/dataslate/item?file=` + encodeURIComponent(filename))
+                .then(r => {
+                    if (!r.ok) throw new Error("File not found");
+                    return r.text();
+                })
+                .then(text => {
+                    let formatted = text;
+                    if (formatted.includes('```mermaid')) {
+                        formatted = formatted.replace(/```mermaid\r?\n([\s\S]*?)```/g, '<div class="mermaid">\n$1\n</div>');
+                    }
+                    document.getElementById('dsItemView').innerHTML = formatted;
+                    if (window.mermaid) {
+                        setTimeout(() => {
+                            try {
+                                mermaid.run({ nodes: document.querySelectorAll('#dsItemView .mermaid') });
+                            } catch (e) { console.error('Mermaid err:', e); }
+                        }, 100);
+                    }
+                })
+                .catch(err => {
+                    document.getElementById('dsItemView').innerHTML = 'Error decrypting file: ' + err;
+                });
+        }
+    </script>
+</body>
+
+</html>

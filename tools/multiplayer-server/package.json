@@ -1,0 +1,13 @@
+{
+    "name": "multiplayer-server",
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "npx wrangler dev",
+        "deploy": "npx wrangler deploy",
+        "stop": "npx wrangler delete multiplayer-server"
+    },
+    "devDependencies": {
+        "wrangler": "^4.68.0"
+    }
+}
