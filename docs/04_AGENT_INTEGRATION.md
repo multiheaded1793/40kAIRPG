@@ -21,13 +21,13 @@ Going beyond mere response generation, you can modularize the DM's thought proce
 
 ### 1. Planning and Plotting
 Create a rule (e.g., `plot-advance.md`) that triggers at the end of a session or at key narrative milestones.
-- **Function:** Tells the Agent to review `dm_notes.md`, analyze player actions in the session log, and update the "Opposition Goals" or "Impending Threats" section in the DM's secret workspace.
+- **Function:** Tells the Agent to review `campaign_notes.md`, analyze player actions in the session log, and update the "Opposition Goals" or "Impending Threats" section in the DM's secret workspace.
 - **Workflow:** Instructs the Agent to think architecturally rather than reacting tactically.
 
 ### 2. Procedural Generation
 Create a skill (e.g., `generate-location` in `.agents/skills/generate-location/SKILL.md`).
 - **Function:** When the players explore a new sector, ask the Agent to use this skill. 
-- **Workflow:** The skill instructs the Agent to roll on `json/campaign_01/underhive_encounters.json`, synthesize the results, create a new `hab_block_XX.md` file, update the `dm_notes.md` location lists, and generate an introductory descriptive blurb.
+- **Workflow:** The skill instructs the Agent to roll on `json/campaign_01/underhive_encounters.json`, synthesize the results, create a new `hab_block_XX.md` file, update the `campaign_notes.md` location lists, and generate an introductory descriptive blurb.
 
 ### 3. Tactical Management
 Create a skill for generating Mermaid diagrams (`update-tactical-map`).

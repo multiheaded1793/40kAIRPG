@@ -88,10 +88,17 @@ function getLogFile() {
     const logDir = path.join('logs', activeCampaign);
     if (!fs.existsSync(logDir)) fs.mkdirSync(logDir, { recursive: true });
 
-    // Get YYYY-MM-DD
-    const date = new Date();
-    const ds = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-    return path.join(logDir, `${ds}_game_log.txt`);
+    // Read current session number from game state
+    const stateFile = path.join('notes', 'current_game.json');
+    let session = 1;
+    if (fs.existsSync(stateFile)) {
+        try {
+            const state = JSON.parse(fs.readFileSync(stateFile, 'utf8'));
+            if (state.current_session) session = state.current_session;
+        } catch (e) { /* fallback to session 1 */ }
+    }
+    const padded = String(session).padStart(2, '0');
+    return path.join(logDir, `session_${padded}.txt`);
 }
 
 function saveGameState(newStateFields) {

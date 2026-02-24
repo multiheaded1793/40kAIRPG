@@ -1,6 +1,7 @@
 .env
 /node_modules
 /literature
+/reports
 /tools/multiplayer-server/.wrangler/cache
 /tools/multiplayer-server/.wrangler/tmp
 /tools/multiplayer-server/.wrangler/state
@@ -8,5 +9,8 @@
 /logs/*
 /notes/current_game.json
 /notes/dm_message.txt
+/notes/*/wishlist.md
 /.agents/rules/*
 /.agents/skills/*
+!/.agents/rules/plan-campaign.md
+!/.agents/rules/start-session.md
