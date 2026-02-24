@@ -1,0 +1,74 @@
+{
+    "Rokarth Encounters - Lower Hive": [
+        {
+            "result": "A Vigilite shakedown. A pair of Macharian Vigilites demand to see transit papers and proof of employment. They are fishing for bribes (50 Solars) or an excuse to confiscate equipment.",
+            "weight": 20
+        },
+        {
+            "result": "A press of desperate labourers surging toward a shift change, threatening to sweep the party apart. Requires a Challenging (+0) Athletics Test to stay together, or risk losing a companion in the crowd.",
+            "weight": 15
+        },
+        {
+            "result": "A Blazing Seraph street preacher distributing alms (thin gruel and stale bread) while mumbling about the 'Emperor's burning light'. Their eyes linger too long on the party's augmetics.",
+            "weight": 15
+        },
+        {
+            "result": "A maglev junction choked with acrid smoke from a nearby promethium leak. Visibility drops to arms-length. Someone is screaming in the murk — a mugging, or something worse?",
+            "weight": 10
+        },
+        {
+            "result": "A dead-eyed servo-skull trailing the party for several minutes before buzzing away. Someone is watching. Is it Halikarn, the Cutters, or the Mechanicus?",
+            "weight": 10
+        },
+        {
+            "result": "A trio of Scarred Hands gangers with chemical-burned skin, marking their territory with green flame graffiti. They are hostile to Cutters but wary of strangers. Could be a source of intel if approached carefully.",
+            "weight": 10
+        },
+        {
+            "result": "A collapsed habway forces a detour through a pitch-dark maintenance corridor. Strange scratching noises echo from the walls. Requires a Routine (+20) Navigation (Surface) Test or waste an hour.",
+            "weight": 8
+        },
+        {
+            "result": "A Cutter lookout spots the party and slips away into an alley. The Cutters now know the party's general location and may prepare an ambush later.",
+            "weight": 5
+        },
+        {
+            "result": "A cherub-style servo familiar malfunctions mid-flight and crashes at the party's feet, spilling a sealed scroll case. The scroll contains a mundane Ministorum inventory — or does it?",
+            "weight": 4
+        },
+        {
+            "result": "An Arbites Rhino APC roars past, sirens blaring, scattering the crowd. Enforcers in full carapace armour are raiding a hab-block nearby. The party can investigate or avoid — either choice has consequences.",
+            "weight": 3
+        }
+    ],
+    "Rokarth Encounters - Upper Hive": [
+        {
+            "result": "A procession of Adeptus Ministorum acolytes carrying incense censers and chanting litanies. They eye the party with suspicion if they are poorly dressed, or with reverence if Sister Helza is visible.",
+            "weight": 25
+        },
+        {
+            "result": "A bureaucratic checkpoint demands transit authorization for the Upper Hive. Wilkus Garn can talk the party through with a Routine (+20) Presence (Leadership) Test, or they need forged documents.",
+            "weight": 20
+        },
+        {
+            "result": "A noble's palanquin carried by servitors barges through the corridor, forcing the party against the wall. A glimpse through the curtain reveals an augmented figure making notes on a data-slate.",
+            "weight": 15
+        },
+        {
+            "result": "A Mechanicus tech-adept scuttles past, multi-limbed and distracted. If approached about augmetics, they mutter about 'unacceptable theft rates' before clamming up.",
+            "weight": 15
+        },
+        {
+            "result": "A propaganda-servitor projects a massive hololithic image of Planetary Governor Castyx, reminding citizens of their 'duty, obedience, and tithe'. The image flickers with an almost subliminal sigil before stabilizing.",
+            "weight": 10
+        },
+        {
+            "result": "A well-dressed Administratum courier is being mugged in a side corridor by two thugs. Rescuing them could earn a useful minor favor in the Datamill.",
+            "weight": 10
+        },
+        {
+            "result": "An unscheduled vox-broadcast overrides all channels: a panicked voice screaming about 'the burning angel is coming' before being cut off by static. Nobody around seems to have noticed.",
+            "weight": 5
+        }
+    ]
+}

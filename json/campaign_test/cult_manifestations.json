@@ -1,0 +1,40 @@
+{
+    "Cult Manifestations - Tzeentch": [
+        {
+            "result": "The lumen-globes in the corridor flicker in a rhythmic pattern — one observant character might notice it matches the cadence of the Seraph preachers' chanting.",
+            "weight": 20
+        },
+        {
+            "result": "A reflection in a puddle of acid-runoff shows the party from an angle that doesn't match their actual position. It corrects itself when directly observed.",
+            "weight": 10
+        },
+        {
+            "result": "A sudden gust of hot, incense-scented air from a ventilation shaft. The temperature spikes unnaturally, then snaps back to the hive's usual chill. Something smells like burning feathers.",
+            "weight": 15
+        },
+        {
+            "result": "The party passes graffiti of an aquila on a wall. One head of the eagle appears to have nine eyes instead of two. Looking again, it's normal — but was it always?",
+            "weight": 10
+        },
+        {
+            "result": "A distant sound of choral singing, beautiful and harmonious, drifts from a direction where no cathedrum or chapel exists. It stops the moment anyone tries to locate the source.",
+            "weight": 15
+        },
+        {
+            "result": "A character's data-slate briefly displays a string of unintelligible symbols before returning to normal. A Challenging (+0) Linguistics Test identifies fragments of pre-Imperial cipher — the same type Halikarn used in his scroll.",
+            "weight": 8
+        },
+        {
+            "result": "A local rat scurries past with iridescent, colour-shifting fur. It pauses, seems to regard the party with unsettling intelligence, then vanishes into a crack in the rockrete.",
+            "weight": 12
+        },
+        {
+            "result": "Reeta von Mard suddenly gasps and grips her head — she senses a psychic 'echo', like a conversation happening just beyond the edge of perception. She can make out a single word: a character's name.",
+            "weight": 5
+        },
+        {
+            "result": "The shadows in this corridor are wrong. They bend at angles that don't match the light source and seem to point towards the Cathedrum district. A Routine (+20) Awareness (Sight) Test confirms they are genuinely moving.",
+            "weight": 5
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "Investigation Clues - Atmospheric": [
+        {
+            "result": "A faded flyer for the 'Cathedrum of Rationed Beneficence' promising 'salvation through the Seraph's fire' is plastered over an older Administratum work-order notice.",
+            "weight": 15
+        },
+        {
+            "result": "A labourer with a fresh, crude augmetic arm — clearly not Mechanicus-sanctioned work — hurries past, avoiding eye contact. The arm sparks intermittently.",
+            "weight": 15
+        },
+        {
+            "result": "Scratched into a wall in frantic handwriting: 'THEY TOOK MY EYES. THE COVEN TOOK MY EYES.' The scratches are recent, and there are dried bloodstains beneath them.",
+            "weight": 10
+        },
+        {
+            "result": "A group of labourers whisper about a colleague who 'went to the Seraph's charity for food and never came back'. They fall silent when they notice the party.",
+            "weight": 15
+        },
+        {
+            "result": "A discarded Cutter gang jacket in a refuse pile. Searching it reveals a poorly-drawn map of tunnels beneath the Cathedrum district, with one chamber marked by a crude flame symbol.",
+            "weight": 5
+        },
+        {
+            "result": "A small, crudely carved idol of a winged, burning figure — vaguely angelic but with too many eyes. It radiates a faint warmth. Reeta von Mard flinches if she's nearby.",
+            "weight": 8
+        },
+        {
+            "result": "The smell of incense suddenly overpowers the usual industrial stench. It seems to emanate from nowhere, and it triggers a brief, inexplicable headache in all party members.",
+            "weight": 10
+        },
+        {
+            "result": "A servo-skull with Ministorum markings hovers near a hab-block entrance, scanning every person who enters. It pauses on the party for an uncomfortably long time before drifting away.",
+            "weight": 12
+        },
+        {
+            "result": "An emaciated child tugs at a character's sleeve and tries to sell them a 'genuine Seraph feather' — a scorched piece of metal sheeting. They say their mother got it 'from inside the miracle'.",
+            "weight": 10
+        }
+    ]
+}
