@@ -1,26 +1,26 @@
 # 3. Mechanics, Challenge Rolls & Randomizer
 
 ## Randomizer
-Shortcut scripts are provided in the root directory to quickly access the randomizer tool. For Windows PowerShell, use `roll.bat`.
+The randomizer tool is invoked directly via Node.js. This works on all platforms (Windows, Linux, Mac):
 
 **Usage:**
 
 To roll dice (e.g., 3d6+2):
-```powershell
-.\roll.bat dice 3d6+2
+```
+node tools/randomizer.js dice 3d6+2
 ```
 To roll dice and calculate degrees of success/failure against a target:
-```powershell
-.\roll.bat dice 1d100 -t 50
+```
+node tools/randomizer.js dice 1d100 -t 50
 ```
 To roll on a table (from a JSON file):
-```powershell
-.\roll.bat table json\sample_table.json "Loot Table - Tier 1"
+```
+node tools/randomizer.js table json/sample_table.json "Loot Table - Tier 1"
 ```
 
 - Roll complex dice combinations and auto-calculate degrees of success.
 - Roll on weighted JSON tables.
-- **Workflow integrations:** Roll results are automatically pushed to the Inquisitorial Cogitator Terminal (the Web REPL), unless the `-H` or `--hidden` flag is used. By default, both `roll.sh` and `roll.bat` will forward this.
+- **Workflow integrations:** Roll results are automatically pushed to the Inquisitorial Cogitator Terminal (the Web REPL), unless the `-H` or `--hidden` flag is used.
 
 ## Challenge Rolls
 

@@ -13,7 +13,7 @@ The `json\campaign_01\` directory currently holds tools to drive the narrative:
 *   `warp_phenomena.json`: **Crucial for Shulie.** Whenever Shulie pushes a "Granny's Luck" (Willpower) roll and fails, or rolls a 90+, trigger a minor outcome from this table to reflect their Latent Wyrd status leaking into reality.
 
 *CLI Reminder:* 
-`.\roll.bat table json\campaign_01\<filename>.json "<Table Header>"`
+`node tools/randomizer.js table json/campaign_01/<filename>.json "<Table Header>"`
 
 ## 3. Suggested Future Tables (Proc Gen Wishlist)
 As the campaign expands, consider creating the following JSONs to streamline DMing:

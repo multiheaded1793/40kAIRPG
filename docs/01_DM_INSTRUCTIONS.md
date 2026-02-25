@@ -37,7 +37,7 @@ The DM uses a three-tier memory system to maintain narrative coherence across se
 
 ## Best Practices for LLM DMing
 *   **Context Management:** Treat `campaign_notes.md` as a living document. Summarize past events and update goals frequently so the state of the campaign is always clear.
-*   **Anchor with Mechanics:** Tie narrative shifts to the `roll.bat` script and JSON tables to anchor the imagination to the gritty, lethal mechanics of Dark Heresy.
+*   **Anchor with Mechanics:** Tie narrative shifts to the randomizer tool (`node tools/randomizer.js`) and JSON tables to anchor the imagination to the gritty, lethal mechanics of Dark Heresy.
 *   **Micro-Pacing:** Do not narrate too far ahead. Present a situation, resolve immediate consequences, and hand agency back to the player with a prompt like "What do you do?".
 *   **Failing Forward:** Dark Heresy is about surviving terrible odds, and Black Crusade about dancing on the edge. Always make failures interesting (e.g., failing a Wyrd test triggers `warp_phenomena.json` to escalate tension).
 *   **Semantic Spatial Tracking:** LLMs struggle with absolute 2D grids or mental maps. If tactical positioning is needed, use relative/semantic vector positioning (e.g., "Player is SW, Bunker is Center, Enemies East of Bunker") or simple topological nodes (like a Mermaid graph) rather than trying to track a rigid X/Y grid.

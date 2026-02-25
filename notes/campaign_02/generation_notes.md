@@ -12,7 +12,7 @@ The `json\campaign_02\` directory holds tools to drive the narrative:
 *   `dark_boons.json`: **Crucial for Chiron.** Whenever Chiron acts aggressively against the Imperial order, pushes his endurance past its limits, or leans on the power of the amulet, trigger outcomes from this table to reflect the capricious favor of the Chaos Gods.
 
 *CLI Reminder:* 
-`.\roll.bat table json\campaign_02\<filename>.json "<Table Header>"`
+`node tools/randomizer.js table json/campaign_02/<filename>.json "<Table Header>"`
 
 ## 3. Suggested Future Tables (Proc Gen Wishlist)
 As the campaign expands, consider creating the following JSONs to streamline DMing:

@@ -10,7 +10,7 @@ The documentation has been split into dedicated modules to assist both human hos
 
 *   **[01. DM Instructions & Persona](docs/01_DM_INSTRUCTIONS.md)**: AI Persona guidelines, directory structure, context management, and best practices for LLM DMing.
 *   **[02. Multiplayer Architecture](docs/02_MULTIPLAYER_ARCHITECTURE.md)**: Node.js Relay Setup, Web REPL operations, and the three distinct DM modes (polling, manual, auto).
-*   **[03. Mechanics & Challenge Rolls](docs/03_MECHANICS_AND_ROLLS.md)**: Usage of the `roll.bat`/`roll.sh` tool, challenge levels, difficulty scales, and modifiers for Graded vs Simple tests.
+*   **[03. Mechanics & Challenge Rolls](docs/03_MECHANICS_AND_ROLLS.md)**: Usage of the randomizer tool (`node tools/randomizer.js`), challenge levels, difficulty scales, and modifiers for Graded vs Simple tests.
 *   **[04. Agent Integration & Rules](docs/04_AGENT_INTEGRATION.md)**: How to leverage the Antigravity IDE constraints `.agents/rules` and skills for targeted procedural generation, plotting, and DM tasks.
 *   **[05. Experimental Workflows](docs/05_EXPERIMENTAL_WORKFLOWS.md)**: Ideas and architectures for novel automated operations, such as dynamic environment rule loading and Autonomous Mode testings.
 

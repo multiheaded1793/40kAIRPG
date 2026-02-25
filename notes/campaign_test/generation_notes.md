@@ -13,7 +13,7 @@ The `json\campaign_test\` directory holds tools to drive the narrative:
 *   `cult_manifestations.json`: When the party gets close to cult activity (the Cathedrum, the Claymore, a Cutter safehouse), roll on this table for unsettling environmental details that foreshadow the Tzeentchian corruption.
 
 *CLI Reminder:*
-`.\roll.bat table json\campaign_test\<filename>.json "<Table Header>"`
+`node tools/randomizer.js table json/campaign_test/<filename>.json "<Table Header>"`
 
 ## 3. Superiority Tracking
 This campaign emphasizes the *Imperium Maledictum* Superiority mechanic. The AI DM should:

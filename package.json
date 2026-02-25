@@ -8,6 +8,7 @@
         "solo-chatroom": "npm run dev --prefix tools/multiplayer-server",
         "start-chatroom": "npm run deploy --prefix tools/multiplayer-server",
         "stop-chatroom": "npm run stop --prefix tools/multiplayer-server",
+        "roll": "node tools/randomizer.js",
         "postinstall": "npm install --prefix tools/multiplayer-server"
     },
     "dependencies": {

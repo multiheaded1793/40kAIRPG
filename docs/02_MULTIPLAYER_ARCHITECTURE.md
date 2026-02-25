@@ -23,7 +23,7 @@ The core gameplay interface runs via a Cloudflare Worker Web UI connected to a l
 4. **DM Operations:**
    - The DM (Agent) writes its message to `notes/dm_message.txt`, then uses `node dm.js campaign_01 -w -p`. to push new narrative text down through the relay to all connected players.
    - **Tactical Maps (Mermaid):** Send the raw diagram: `node dm.js campaign_01 "\`\`\`mermaid\ngraph TD...\`\`\`"`
-   - Dice rolls from `roll.bat` and `roll.sh` are pushed up to the Cloudflare UI automatically unless `-H` is appended.
+   - Dice rolls from `node tools/randomizer.js` are pushed up to the Cloudflare UI automatically unless `-H` is appended.
 
 ## Server State Management
 To save resources when not playing, you can easily turn the Cloudflare Worker on and off using the NPM scripts provided in the root directory:
