@@ -12,5 +12,5 @@
 /notes/*/wishlist.md
 /.agents/rules/*
 /.agents/skills/*
-!/.agents/rules/plan-campaign.md
+!/.agents/rules/dh-plan-campaign.md
 !/.agents/rules/start-session.md

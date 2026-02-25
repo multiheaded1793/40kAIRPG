@@ -18,7 +18,16 @@ At the grim heart of Hive Rokarth—a towering edifice of misery, industry, and 
     *   **Cathedrum of Rationed Beneficence:** A towering, ornate cathedrum that serves as the public face— and secret base— of the Coven of the Blazing Seraph.
     *   **Maglev Nexus:** The transit hub connecting the hive's vertical strata. A hunting ground for augmetic-thieves.
 
-## 3. The Party (Pre-Generated — All Player Characters)
+## 3. The Patron
+*   **Faction:** The Inquisition
+*   **Duty:** Ordo Hereticus Inquisitor — Halikarn operates from the shadows, deploying disposable acolyte cells to root out corruption across the Macharian Sector
+*   **Motivation:** Conflict — prefers to excise threats through decisive, surgical action rather than drawn-out investigation
+*   **Demeanour:** Wrathful — demands results, accepts no excuses, and is frighteningly quick to cut loose any cell that fails
+*   **Boon — Limitless Authority:** The Inquisitorial Seal can be invoked to override Vigilites, Ministorum officials, or Mechanicus gatekeepers — but every use is tracked and leaves a trail of consequences
+*   **Boon — Spy Network:** Leo 'Wink' Rantz is the tip of a broader web of local informants Halikarn maintains across Hive Rokarth, providing leads and rumours if the party can find and leverage them
+*   **Liability — Abrupt:** Halikarn is brusque, impatient, and has burned bridges across factions. His name carries weight but also resentment — invoking it may close as many doors as it opens
+
+## 4. The Party (Pre-Generated — All Player Characters)
 *Character sheets: `player_materials/campaign_test/`*
 
 *   **Wilkus Garn (PC — Interlocutor / Administratum):** A former scrivener of the Adeptus Administratum — ordered, cunning, and a stickler for rigid procedure, especially when manipulating it to his own ends. His sharp mind for logistics and knowledge of Imperial red tape make him invaluable for navigating the Datamill and decoding ciphers. Equipped with an Augmetic Eye (+10 Awareness/Sight), a Laspistol, and an arsenal of social talents (Air of Authority, Data Delver, Dealmaker, Overseer). Starts with 800 Solars.
@@ -26,19 +35,19 @@ At the grim heart of Hive Rokarth—a towering edifice of misery, industry, and 
 *   **Reeta von Mard (PC — Mystic / Adeptus Astra Telepathica):** A sanctioned psyker born to a noble family, raised by a secluded order of cave-dwelling oracles, and forcibly recruited by Halikarn. She wields three psychic powers (Jinx, Smite, Twist Fate) from the Divination Discipline. Her Psyniscience skill allows her to sense Warp taint — a crucial tool for identifying the cult. Dauntless and driven by a certainty in fate; her powers are devastating but the Warp is always listening. Has 4 Fate Points (the most in the party). Starts with 500 Solars.
 *   **Leo 'Wink' Rantz (NPC Guide — Infractionist Informant):** A fast-talking, one-legged (after the Chop Shop incident) criminal who works as Halikarn's local informant. He is a coward and a gambler, but his knowledge of Rokarth's underworld is indispensable. He can suggest courses of action when the party is stuck but will *never* fight or enter Precinct Fortress Majoris.
 
-## 4. The Opposition
+## 5. The Opposition
 *   **The Coven of the Blazing Seraph:** A Tzeentchian cult masquerading as a charitable offshoot of the Imperial Creed. Led by Arch-Deacon Excavus Artosy (a beguiled Ministorum leader) and the Rogue Psyker Mulciber, they seek a psychically gifted, heavily augmented host body for the Blazing Seraph — a Lord of Change once banished by Macharius himself.
 *   **The Cutters (Gang):** An Infractionist gang infested by the cult. They abduct citizens with augmetics to harvest parts for the Heretek. Led by Lieutenant Blister, a cowardly but cunning gangster. They operate from the Chop Shop and the Claymore.
 *   **The Armourer (Heretek):** An unseen antagonist for most of the campaign. A member of the Adeptus Mechanicus turned radical Heretek, they supply the Cutters with advanced weapons and install cult augmetics. They are the "hooded figure" who survived the refinery explosion using a refractor field.
 *   **The Macharian Vigilites (Systemic Obstacle):** Not enemies per se, but corrupt, violent, and obstructive. Squad Leader Baranoth and Duty Officer Vogth are embodiments of the Imperium's grinding, indifferent cruelty. They can be bribed, intimidated, or bluffed, but *never* reasoned with.
 
-## 5. Themes & Tone
+## 6. Themes & Tone
 *   **Investigation over Violence:** This scenario rewards preparation, social manipulation, and logical deduction. Combat is deadly and should be a last resort. The AI DM should always hint at non-violent solutions and grant Superiority for gathering intel before a fight.
 *   **Paranoia & Competing Authorities:** The Inquisition, the Ministorum, the Mechanicus, the Vigilites, and the gangs all have competing agendas at the refinery site. Pleasing one faction angers another. The party's Inquisitorial Seal is a nuclear option that can open any door but leaves a trail of consequences.
 *   **Grim Satire:** The Imperium's own bureaucratic rot (the missing roster, the corrupt Vigilites, the oblivious crowds chanting for a Chaos daemon's "miracle") is the true horror. The cult thrives because the system is too bloated and cruel to notice.
 *   **The Three-Clue Rule:** Every vital piece of information must be discoverable through at least three different avenues. Skill tests should reveal *depth*, not *access*.
 
-## 6. Flexible Structure
+## 7. Flexible Structure
 *   **Macro-Structure (The Rails — Four-Part Investigation):**
     1.  **Consecrated Ground:** The party receives their mission (the cipher scroll), rescues Leo from the Cutters' Chop Shop, and investigates the ruins of the Acid Refinery. Three initial clues are discovered: the Augmetic Arm, the missing Administratum Roster, and the Hooded Figure on the pict-recording.
     2.  **Trifurcated Investigation:** Three parallel leads — the Arm (leads to Precinct Fortress Majoris and Novem Zhao), the Roster (leads to the Datamill and the terrified Scribus Jorrgensen), and the Hooded Figure (leads to the Maglev Nexus and the Cutters' trail). A three-day time limit pressures the party.
@@ -51,9 +60,9 @@ At the grim heart of Hive Rokarth—a towering edifice of misery, industry, and 
     *   Scribus Jorrgensen may flee to the Claymore — chasing her triggers a confrontation with the Scarred Hands, an innocent rival gang being framed by Artosy.
     *   Novem Zhao's case notes reveal the Cutters' connection to the cult, potentially allowing the party to short-circuit Part 2 and move directly to the Cathedrum.
 
-## 7. Persistent Maps
+## 8. Persistent Maps
 *   **[Acid Refinery Delta-64](mermaid/acid_refinery_delta64.md):** The blast site, Vigilite Cordon, Phi-99 Manufactorum, and surrounding habways.
 *   *(Add links to other persistent `.md` map files here as they are discovered or mapped out by the party)*
 
-## 8. Ongoing Observations (Log)
+## 9. Ongoing Observations (Log)
 *   *Add thoughts and impressions here as the campaign progresses.*
