@@ -7,8 +7,9 @@ The IDE naturally references rule files scoped globally or at the workspace leve
 
 **Rules** apply broad behavioral guidelines (e.g., tone, default responses).
 **Skills** provide actionable guidelines to follow specific workflows (e.g., how to generate a city, how to execute a combat turn).
+**NOTE** that the specifics of using rules and skills for an experimental application (such as this engine) are still being worked out. Certain modules can be provided both as a rule and a skill for testing purposes; load one or the other, not both at the same time.
 
-### Existing Workflow: `auto-dm-turn.md`
+### Core Flow: `auto-dm-turn.md`
 The file `.agents/rules/auto-dm-turn.md` is central to the `auto` DM mode. It contains instructions like:
 - "Consider the messages sent by the players since last turn, collated in `@/logs/player_message_pad.txt`"
 - "Think and send a response as the DM; this will clear the pad"
