@@ -67,18 +67,18 @@ node grpc_capture.js          # Outputs grpc_capture.json
 Antigravity's IPC is locked down (no `vscode:openWindow` handler), so you **cannot** open workspaces from the Manager webview. However, passing a folder path to `Antigravity.exe` opens it as a workspace in the running instance, and it immediately appears in the Manager sidebar:
 
 ```bash
-& "C:\Users\user1\AppData\Local\Programs\Antigravity\Antigravity.exe" "C:\path\to\your\folder"
+& "C:\Users\momhu\AppData\Local\Programs\Antigravity\Antigravity.exe" "C:\path\to\your\folder"
 ```
 
 > **Note:** This opens a new editor window for the folder. To close the extra window while keeping the workspace registered in the Manager, use Puppeteer's `page.close()` on any non-Manager target (see setup routine below).
 
 **Multi-workspace setup routine** — open several folders, close the extra editor windows, and kick off agents in each:
 ```powershell
-$exe = "C:\Users\user1\AppData\Local\Programs\Antigravity\Antigravity.exe"
+$exe = "C:\Users\momhu\AppData\Local\Programs\Antigravity\Antigravity.exe"
 $folders = @(
-    "C:\Users\user1\Desktop\project_alpha",
-    "C:\Users\user1\Desktop\project_beta",
-    "C:\Users\user1\Desktop\project_gamma"
+    "C:\Users\momhu\Desktop\project_alpha",
+    "C:\Users\momhu\Desktop\project_beta",
+    "C:\Users\momhu\Desktop\project_gamma"
 )
 
 # 1. Open all folders as workspaces
@@ -210,5 +210,194 @@ cdp.on('Fetch.requestPaused', async (params) => {
     // csrf is your token
 });
 // Then trigger a native click on a conversation pill to force an app-initiated request
+```
+
+---
+
+## Response Stream Anatomy
+
+Each call to `GetCascadeTrajectory` returns a `trajectory.steps[]` array. A single conversation turn produces the following step sequence:
+
+### Step Types
+
+| Step Type | Contents |
+|---|---|
+| `USER_INPUT` | Prompt text, model config, auto-execution policies, requested model |
+| `CONVERSATION_HISTORY` | Marker (empty object) — indicates history was loaded |
+| `KNOWLEDGE_ARTIFACTS` | Marker — indicates KI lookup was performed |
+| `EPHEMERAL_MESSAGE` | System injections (task reminders, active file context, etc.) |
+| `PLANNER_RESPONSE` | **The agent's output** — thinking + response text + stop reason |
+| `CHECKPOINT` | Auto-generated conversation title + intent summary + token usage |
+| `ERROR_MESSAGE` | Model errors (503 capacity exhausted, retryable errors, etc.) |
+
+All step type names are prefixed with `CORTEX_STEP_TYPE_`. Statuses are prefixed with `CORTEX_STEP_STATUS_` (`DONE`, `GENERATING`).
+
+### `plannerResponse` Object
+
+The core agent output. **Thinking and response are fully separated:**
+
+```json
+{
+  "modifiedResponse": "The clean visible text the agent wrote...",
+  "thinking": "**Initiating Task**\n\nI'm now analyzing the codebase...",
+  "thinkingSignature": "EqUKCqIKAb4+9vv2u...",
+  "thinkingDuration": "2.059281700s",
+  "messageId": "bot-c8c9647a-fb14-467a-bf54-f76d47bda88d",
+  "stopReason": "STOP_REASON_STOP_PATTERN"
+}
+```
+
+| Field | Use |
+|---|---|
+| `modifiedResponse` | The agent's clean text output (what the user sees) |
+| `thinking` | Full chain-of-thought (the collapsed "thinking" block in the UI) |
+| `thinkingDuration` | How long the model spent in the thinking phase |
+| `stopReason` | `STOP_PATTERN` = natural end, `CLIENT_STREAM_ERROR` = interrupted |
+| `messageId` | Unique ID for this message |
+
+### `checkpoint` Object
+
+Generated after each turn. Contains the auto-generated conversation summary:
+
+```json
+{
+  "intentOnly": true,
+  "userIntent": "Agent Test 1\nThe user's main goal is to test the agent workflow..."
+}
+```
+
+This is the same text that appears as the conversation title and summary in the Manager sidebar.
+
+### Step Metadata
+
+Every step carries rich metadata:
+
+```json
+{
+  "generatorModel": "MODEL_PLACEHOLDER_M37",
+  "requestedModel": { "model": "MODEL_PLACEHOLDER_M37" },
+  "executionId": "edad38d6-2f24-439a-8a63-fa3cec778f7a",
+  "createdAt": "2026-02-25T17:47:56.842Z",
+  "viewableAt": "2026-02-25T17:48:01.994Z",
+  "finishedGeneratingAt": "2026-02-25T17:48:04.466Z"
+}
+```
+
+Token usage is available on checkpoint steps via `modelUsage`:
+```json
+{
+  "inputTokens": "5079",
+  "outputTokens": "33",
+  "thinkingOutputTokens": "264",
+  "responseOutputTokens": "2",
+  "cacheReadTokens": "16259"
+}
+```
+
+### `errorMessage` Object
+
+When the model hits an error (e.g. capacity exhaustion), you get:
+
+```json
+{
+  "userErrorMessage": "Our servers are experiencing high traffic...",
+  "shortError": "UNAVAILABLE (code 503): No capacity available for model gemini-3.1-pro-high",
+  "errorCode": 503
+}
+```
+
+The backend retries automatically — a subsequent `PLANNER_RESPONSE` step follows if the retry succeeds.
+
+---
+
+## Multi-Agent Router Architecture
+
+A design for orchestrating multiple concurrent agents through a **single Manager window** using a UI mutex pattern. This approach stays fully within the provided UI (no synthetic API calls), making it compliant with the TOS.
+
+### Overview
+
+```
+┌──────────────────────────────────────────────────┐
+│                  AgentRouter                      │
+│  ┌─────────┐  ┌─────────┐  ┌─────────┐          │
+│  │ Agent A  │  │ Agent B  │  │ Agent C  │  ...    │
+│  └────┬─────┘  └────┬─────┘  └────┬─────┘         │
+│       │              │              │               │
+│       ▼              ▼              ▼               │
+│  ┌──────────────────────────────────────────┐      │
+│  │         UI Mutex Queue (FIFO)            │      │
+│  │  "acquire lock → click → paste → send   │      │
+│  │   → release lock"                        │      │
+│  └──────────────┬───────────────────────────┘      │
+│                 │                                    │
+│                 ▼                                    │
+│  ┌──────────────────────────────────────────┐      │
+│  │   CDP Passive Listener (async)           │      │
+│  │   Network.responseReceived on            │      │
+│  │   GetCascadeTrajectory responses         │      │
+│  │   → match by cascadeId                   │      │
+│  │   → resolve when PLANNER_RESPONSE DONE   │      │
+│  └──────────────────────────────────────────┘      │
+└──────────────────────────────────────────────────┘
+```
+
+### How It Works
+
+1. **Request Lock:** When Agent A needs to send a prompt, it calls `router.send(cascadeId, prompt)`, which enters a FIFO queue.
+
+2. **Acquire & Send (1-2s):** When the lock is free:
+   - Click the correct workspace pill in the sidebar.
+   - Click the correct conversation pill.
+   - Paste the prompt into the Lexical editor via `ClipboardEvent('paste')`.
+   - Click the send button (native mouse click).
+
+3. **Release Lock Immediately:** As soon as the send click fires, the lock is released. The next agent in the queue can now use the UI. The backend is already processing Agent A's request.
+
+4. **Passive Listen (async):** A CDP `Network.responseReceived` listener runs continuously in the background, watching all `GetCascadeTrajectory` responses. When a response contains a completed `PLANNER_RESPONSE` step for Agent A's `cascadeId`, it resolves Agent A's promise with the full response data.
+
+5. **Collect & Delegate:** Agent A receives:
+   - `modifiedResponse` — the clean text to parse and act on
+   - `thinking` — the chain-of-thought for analysis
+   - `stopReason` + `errorMessage` — for error handling and retries
+   - Token usage — for cost tracking across the hierarchy
+
+### Why This Works
+
+- **Bottleneck is tiny:** The UI lock is held only for ~1-2s (click + paste + send). Response generation (10-60s) happens entirely in the background.
+- **Fully compliant:** No OAuth tokens extracted, no synthetic API requests. Every interaction goes through the native UI.
+- **Scalable:** A dozen agents can pipeline prompts through one Manager window. While 5 responses are generating server-side, the UI is free.
+- **Hierarchical:** Master agents can dispatch sub-prompts, wait for results, and synthesize — all through the same queue.
+
+### Passive Response Listener Pattern
+
+```javascript
+// Set up a persistent CDP listener for trajectory responses
+const cdp = await managerPage.createCDPSession();
+await cdp.send('Network.enable');
+
+const pendingAgents = new Map(); // cascadeId → { resolve, reject }
+
+cdp.on('Network.responseReceived', async (params) => {
+    if (!params.response.url.includes('GetCascadeTrajectory')) return;
+    try {
+        const { body } = await cdp.send('Network.getResponseBody', { requestId: params.requestId });
+        const data = JSON.parse(body);
+        const steps = data.trajectory?.steps || [];
+        const lastStep = steps[steps.length - 1];
+
+        if (lastStep?.type === 'CORTEX_STEP_TYPE_PLANNER_RESPONSE'
+            && lastStep?.status === 'CORTEX_STEP_STATUS_DONE') {
+            const cascadeId = data.trajectory.cascadeId;
+            if (pendingAgents.has(cascadeId)) {
+                pendingAgents.get(cascadeId).resolve({
+                    text: lastStep.plannerResponse.modifiedResponse,
+                    thinking: lastStep.plannerResponse.thinking,
+                    stopReason: lastStep.plannerResponse.stopReason
+                });
+                pendingAgents.delete(cascadeId);
+            }
+        }
+    } catch (e) { /* response not ready yet, ignore */ }
+});
 ```
 
